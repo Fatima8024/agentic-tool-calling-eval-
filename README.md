@@ -1,19 +1,22 @@
 # Agentic AI Evaluation (Tool Calling / Function Calling)
 
-A supervised evaluation mini-pack to stress-test tool-using LLM agents.
-Includes realistic scenarios, golden trajectories (expected behavior paths), clear pass/fail rules + rubrics, and a lightweight runner and a simulated grader.
+A supervised evaluation mini-pack to stress-test **tool-using LLM agents** using:
+- structured scenarios (JSONL)
+- **golden trajectories** (expected correct behavior paths)
+- pass/fail rules + a human-readable rubric
+- a lightweight validator and a simulated scorer
 
-This is designed to demonstrate **AI evaluation skills**: scenario design, edge-case stress testing, golden labeling, and reproducible scoring.
+This repo demonstrates **AI evaluation skills**: scenario design, edge-case stress testing, golden labeling, and reproducible scoring.
 
 ---
 
 ## What this project demonstrates
 - Designing realistic multi-step tool-use scenarios (planning + edge cases)
-- Writing **golden trajectories** and pass/fail rules (expected “correct” paths)
+- Writing **golden trajectories** with explicit pass/fail rules (expected correct behavior)
 - Capturing common failure modes (hallucination, constraint violations, missing clarifications)
-- Reproducible scoring outputs (`results_out.csv`, `results_scored.csv`)
+- Producing reproducible outputs (`results_out.csv`, `results_scored.csv`) for evaluation pipelines
 
- 
+---
 
 ## Contents
 - `flight_eval_pack/scenarios.jsonl` — prompts + constraints (JSONL)
@@ -22,14 +25,14 @@ This is designed to demonstrate **AI evaluation skills**: scenario design, edge-
 - `flight_eval_pack/rubric.md` — scoring rubric
 - `flight_eval_pack/run_stub.py` — validates the pack + generates `results_out.csv`
 - `flight_eval_pack/grade_simulated.py` — scores simulated outputs → `results_scored.csv`
+- `flight_eval_pack/model_outputs/` — example simulated outputs used for scoring
 
-
- ---
+---
 
 ## Scenarios included
 - **FLIGHT_001 (tool_use_planning):** happy-path workflow (plan → search → filter → select → ask passenger details)
-- **FLIGHT_002 (tool_use_edge_case):** no valid results; model must propose constraint relaxations (anti-hallucination)
-- **FLIGHT_003 (tool_use_edge_case):** ambiguous date interpretation; model must confirm date before any tool calls
+- **FLIGHT_002 (tool_use_edge_case):** no valid results; agent must propose constraint relaxations (anti-hallucination)
+- **FLIGHT_003 (tool_use_edge_case):** ambiguous date; agent must confirm date before any tool calls
 
 ---
 
@@ -39,4 +42,3 @@ This is designed to demonstrate **AI evaluation skills**: scenario design, edge-
 ```bash
 cd flight_eval_pack
 python run_stub.py
-python grade_simulated.py
