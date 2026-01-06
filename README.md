@@ -42,35 +42,31 @@ This repo demonstrates **AI evaluation skills**: scenario design, edge-case stre
 ```bash
 cd flight_eval_pack
 python run_stub.py
+```
 
 Creates:
+  - `results_out.csv` (blank labeling sheet; fill manually if desired)
 
-results_out.csv (blank labeling sheet; fill manually if desired)
-
-2) Score simulated outputs (auto-filled PASS/FAIL)
-```bash
+### 2) Score simulated outputs (auto-filled PASS/FAIL)
 Make sure these files exist:
 
-flight_eval_pack/model_outputs/FLIGHT_001.txt
+  -  `flight_eval_pack/model_outputs/FLIGHT_001.txt`
 
-flight_eval_pack/model_outputs/FLIGHT_002.txt
+  -  `flight_eval_pack/model_outputs/FLIGHT_002.txt`
 
-flight_eval_pack/model_outputs/FLIGHT_003.txt
+  -  `flight_eval_pack/model_outputs/FLIGHT_003.txt`
+
 
 Then run:
-
+```bash
+cd flight_eval_pack
 python grade_simulated.py
-
+```
 
 Creates:
+ - `results_scored.csv` (auto-filled labels + notes)
 
-results_scored.csv (auto-filled labels + notes)
+## Notes / limitations
+- This repo focuses on **evaluation design + labeling**, not a production flight API.
 
-shell
-
-Notes / limitations
-
-This repo focuses on evaluation design + labeling, not a production flight API.
-
-Tool outputs are simulated; scoring is rule-based for demonstration.
-
+- Tool outputs are simulated; scoring is rule-based for demonstration.
