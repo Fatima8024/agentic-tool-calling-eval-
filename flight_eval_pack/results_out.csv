@@ -1,0 +1,4 @@
+scenario_id,model_name,run_timestamp,tool_order_ok,constraints_ok,hallucination,asked_clarifications,final_label,notes
+FLIGHT_001,,2026-01-05T13:05:50.241133Z,,,,,,
+FLIGHT_002,,2026-01-05T13:05:50.241133Z,,,,,,
+FLIGHT_003,,2026-01-05T13:05:50.245170Z,,,,,,

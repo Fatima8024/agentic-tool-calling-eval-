@@ -1,0 +1,10 @@
+Plan: I will search flights KHI→DXB for 2026-01-09 after 19:00 in USD, filter to total layovers ≤120 minutes, select the cheapest valid option, then ask for passenger details before booking.
+
+TOOL_CALL: search_flights {"origin":"KHI","destination":"DXB","date":"2026-01-09","earliest_departure_time":"19:00","currency":"USD"}
+TOOL_CALL: filter_flights {"max_layover_minutes":120}
+TOOL_CALL: select_flight {"flight_id":"<CHEAPEST_VALID_FLIGHT_ID_FROM_RESULTS>"}
+
+I’m ready to book the cheapest option that satisfies your constraints. Before I place the booking, please confirm:
+1) Passenger full name
+2) Exact name spelling as on passport
+3) Are you okay with a 1-stop itinerary if that’s the cheapest valid option?

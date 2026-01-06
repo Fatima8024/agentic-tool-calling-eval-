@@ -1,0 +1,52 @@
+[
+  {
+    "name": "search_flights",
+    "description": "Search flights for a given route and date/time window.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "origin": { "type": "string", "description": "IATA code, e.g., KHI" },
+        "destination": { "type": "string", "description": "IATA code, e.g., DXB" },
+        "date": { "type": "string", "description": "YYYY-MM-DD" },
+        "earliest_departure_time": { "type": "string", "description": "HH:MM (24h)" },
+        "currency": { "type": "string", "description": "ISO currency code, e.g., USD" }
+      },
+      "required": ["origin", "destination", "date", "earliest_departure_time", "currency"]
+    }
+  },
+  {
+    "name": "filter_flights",
+    "description": "Filter flights by maximum total layover duration.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "max_layover_minutes": { "type": "integer" }
+      },
+      "required": ["max_layover_minutes"]
+    }
+  },
+  {
+    "name": "select_flight",
+    "description": "Select a flight by its ID from the search results.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "flight_id": { "type": "string" }
+      },
+      "required": ["flight_id"]
+    }
+  },
+  {
+    "name": "create_booking",
+    "description": "Create a booking for a selected flight. Must collect passenger details first.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "flight_id": { "type": "string" },
+        "passenger_full_name": { "type": "string" },
+        "passport_name": { "type": "string" }
+      },
+      "required": ["flight_id", "passenger_full_name", "passport_name"]
+    }
+  }
+]

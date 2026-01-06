@@ -1,0 +1,3 @@
+scenario_id,model_name,run_timestamp,tool_order_ok,constraints_ok,hallucination,asked_clarifications,final_label,notes
+FLIGHT_001,,, , , , , ,
+FLIGHT_002,,, , , , , ,
